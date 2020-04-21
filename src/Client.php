@@ -24,7 +24,7 @@ class Client
     /**
      * @var string
      */
-    protected $baseUrl = 'http://api.imagga.com/v1';
+    protected $baseUrl = 'http://api.imagga.com/v2';
 
     /**
      * Create a new Imagga API Client instance.
@@ -48,8 +48,8 @@ class Client
      */
     public function tags($url, array $options = [])
     {
-        return $this->send('GET', 'tagging', array_merge($options, [
-            'url' => $url,
+        return $this->send('GET', 'tags', array_merge($options, [
+            'image_url' => $url,
             'version' => '2',
         ]));
     }
@@ -63,7 +63,7 @@ class Client
     public function colors($url, array $options = [])
     {
         return $this->send('GET', 'colors', array_merge($options, [
-            'url' => $url,
+            'image_url' => $url,
         ]));
     }
 
